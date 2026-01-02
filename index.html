@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Entry Office</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #34495e;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #34495e;
+            margin-bottom: 20px;
+        }
+        .tab-button {
+            padding: 10px 20px;
+            background-color: #ecf0f1;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .tab-button.active {
+            background-color: #3498db;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .download-link {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 10px 15px;
+            background-color: #27ae60;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .download-link:hover {
+            background-color: #229954;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Data Entry Office</h1>
+        <p>Official Data Management Portal</p>
+    </header>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <h2>Data Download Center</h2>
+        
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'monthly')">Monthly Data</button>
+            <button class="tab-button" onclick="openTab(event, 'quarterly')">Quarterly Data</button>
+            <button class="tab-button" onclick="openTab(event, 'annual')">Annual Data</button>
+        </div>
+        
+        <div id="monthly" class="tab-content active">
+            <h3>Monthly Data Files</h3>
+            <a href="#" class="download-link">📥 January 2024</a>
+            <a href="#" class="download-link">📥 February 2024</a>
+            <a href="#" class="download-link">📥 March 2024</a>
+        </div>
+        
+        <div id="quarterly" class="tab-content">
+            <h3>Quarterly Data Files</h3>
+            <a href="#" class="download-link">📥 Q1 2024</a>
+            <a href="#" class="download-link">📥 Q2 2024</a>
+            <a href="#" class="download-link">📥 Q3 2024</a>
+        </div>
+        
+        <div id="annual" class="tab-content">
+            <h3>Annual Data Files</h3>
+            <a href="#" class="download-link">📥 Year 2023</a>
+            <a href="#" class="download-link">📥 Year 2024</a>
+        </div>
+    </div>
+    
+    <script>
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+            
+            const tabButtons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
